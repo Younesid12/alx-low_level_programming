@@ -1,23 +1,22 @@
 #include <stdio.h>
 /**
  *main - Entry point
- *Discription: ‘print alphabets lowercase and uppercase’
+ *Discription: ‘print alphabets except q and e’
  *Return: Always 0
  */
 int main(void)
 {
 	int n = 97;
-	int m = 65;
 
 	while (n <= 122)
 	{
-		putchar(n);
-		n++;
-	}
-	while (m <= 90)
+	if (n == 101 || n == 113)
 	{
-		putchar(m);
-		m++;
+	n++;
+	continue;
+	}
+	putchar(n);
+	n++;
 	}
 	putchar('\n');
 	return (0);
