@@ -1,21 +1,17 @@
 #include <stdio.h>
 /**
  *main - Entry point
- *Discription: ‘print numbers of base 16’
+ *Discription: ‘print alphabets in reverse’
  *Return: Always 0
  */
 int main(void)
 {
-	int n;
-	int m;
+	int n = 122;
 
-	for (n = 48; n <= 57; n++)
+	while (n >= 97)
 	{
 		putchar(n);
-	}
-	for (m = 97; m <= 102; m++)
-	{
-		putchar(m);
+		n--;
 	}
 	putchar('\n');
 	return (0);
