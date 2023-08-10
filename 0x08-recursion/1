@@ -1,0 +1,29 @@
+#include "main.h"
+/**
+ * _sqrt_recursion - finds the natural square root of a number
+ * @n: the number for which to find the square root
+ * Return: the square root of n, or -1 if not found
+ */
+int square_root(int n, int guess);
+
+int _sqrt_recursion(int n)
+{
+    return (square_root(n, 1));
+}
+
+/**
+ * square_root - finds the square root of a number using recursion
+ * @n: the number for which to find the square root
+ * @guess: current guess for the square root
+ * Return: the square root of n, or -1 if not found
+ */
+int square_root(int n, int guess)
+{
+    if (guess * guess == n)
+        return guess;
+    else if (guess * guess < n)
+        return square_root(n, guess + 1);
+    else
+        return -1;
+}
+
