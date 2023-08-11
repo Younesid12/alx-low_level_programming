@@ -1,52 +1,68 @@
 #include "main.h"
 
 /**
- * last_index - returns the last index of a string (counts the null char)
- * @s: pointer the string
- * Return: int
+ * move_past_star - iterates past asterisk
+ * @s2: the second string, can contain wildcard
+ *
+ * Return: the pointer past star
  */
-int is_palindrome(char *s);
-int check(char *s, int start, int end, int mod);
-int last_index(char *s)
+char *move_past_star(char *s2)
 {
-int n = 0;
-
-if (*s > '\0')
-	n += last_index(s + 1) + 1;
-
-return (n);
+	if (*s2 == '*')
+		return (move_past_star(s2 + 1));
+	else
+		return (s2);
 }
 
 /**
- * is_palindrome - check if a string is a palindrome
- * @s: string to check
- * Return: 0 or 1
+ * inception - makes magic a reality
+ * @s1: the first string
+ * @s2: the second string, can contain wildcard
+ *
+ * Return: 1 if identical, 0 if false
  */
-
-int is_palindrome(char *s)
+int inception(char *s1, char *s2)
 {
-int end = last_index(s);
+	int ret = 0;
 
-return (check(s, 0, end - 1, end % 2));
+	if (*s1 == 0)
+		return (0);
+	if (*s1 == *s2)
+		ret += wildcmp(s1 + 1, s2 + 1);
+	ret += inception(s1 + 1, s2);
+	return (ret);
 }
 
 /**
- * check - checker for the palindrome
- * @s: string
- * @start: int moves from right to left
- * @end: int moves from left to right
- * @mod: int
- * Return: 0 or 1
+ * wildcmp - compares two strings lexicographically
+ * @s1: the first string
+ * @s2: the second string, can contain wildcard
+ *
+ * Return: 1 if identical, 0 if false
  */
-
-
-int check(char *s, int start, int end, int mod)
+int wildcmp(char *s1, char *s2)
 {
+	int ret = 0;
 
-if ((start == end && mod != 0) || (start == end + 1 && mod == 0))
-	return (1);
-else if (s[start] != s[end])
+	if (!*s1 && *s2 == '*' && !*move_past_star(s2))
+		return (1);
+	if (*s1 == *s2)
+	{
+		if (!*s1)
+			return (1);
+		return (wildcmp(s1 + 1, *s2 == '*' ? s2 : s2 + 1));
+	}
+	if (!*s1 || !s2)
+		return (0);
+	if (*s2 == '*')
+	{
+		s2 = move_past_star(s2);
+		if (!*s2)
+			return (1);
+		if (*s1 == *s2)
+			ret += wildcmp(s1 + 1, s2 + 1);
+		ret += inception(s1, s2);
+		return (!!ret);
+	}
 	return (0);
-else
-	return (check(s, start + 1, end - 1, mod));
 }
