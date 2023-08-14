@@ -3,7 +3,7 @@
 /**
  * main - multiply two numbers
  * @argc: int
- * @argc: list
+ * @argv: list
  * Return: 0 return 1 if error
  */
 int main(int argc, char *argv[])
