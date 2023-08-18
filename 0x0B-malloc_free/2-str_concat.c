@@ -10,8 +10,8 @@ char *str_concat(char *s1, char *s2)
 	int size = 0;
 	int i = 0;
 	char *str;
-	int b;
-	int c;
+	int b = 0;
+	int c = 0;
 
 	if (s1 == 0 && s2 == 0)
 	{
@@ -35,8 +35,8 @@ char *str_concat(char *s1, char *s2)
 	else
 	{
 		for (; size < c; size++)
-		s1[i] += s2[size++];
-		str[i] = s1[i];
+		s1[i++] += s2[size++];
+		str[size++] = s1[i];
 	}
 	return (str);
 }
