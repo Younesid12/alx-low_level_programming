@@ -26,7 +26,7 @@ char *_strdup(char *str)
 	}
 	else
 	{
-		for (int b = 0; b < i; b++;)
+		for (int b = 0; b < i; b++)
 			ptr[b] = str[b];
 	}
 	return (ptr);
