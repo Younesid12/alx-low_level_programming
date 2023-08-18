@@ -36,6 +36,7 @@ char *str_concat(char *s1, char *s2)
 	else
 	{
 		int l = 0;
+
 		for (; size <= i; size++)
 		str[l++] = s1[size];
 
