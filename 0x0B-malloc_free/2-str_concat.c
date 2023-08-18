@@ -40,7 +40,6 @@ char *str_concat(char *s1, char *s2)
 
 		for (; f <= b; f++)
 		str[size++] = s1[f];
-		str[size] = '\0';
 	}
 	return (str);
 }
