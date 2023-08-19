@@ -29,10 +29,12 @@ char *str_concat(char *s1, char *s2)
 	int b = 0;
 	char *str;
 
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL)
 	{
-		return (NULL);
+		s1 = "";
 	}
+	if (s2 == NULL)
+		s2 = "";
 	size1 = _strlen(s1);
 	size2 = _strlen(s2);
 
