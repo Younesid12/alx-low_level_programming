@@ -23,6 +23,9 @@ char *str_concat(char *s1, char *s2)
 {
 	int size1;
 	int size2;
+	int n = 0;
+	int b = 0;
+	int *str;
 
 	if (s1 == 0 && s2 == 0)
 	{
@@ -31,9 +34,6 @@ char *str_concat(char *s1, char *s2)
 	size1 = _strlen(s1);
 	size2 = _strlen(s2);
 
-	int *str;
-	int b;
-	int n;
 
 	str = malloc((size1 + size2) * sizeof(char) + 1);
 	if (str == 0)
