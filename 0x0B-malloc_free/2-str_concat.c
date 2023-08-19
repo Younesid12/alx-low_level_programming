@@ -25,7 +25,7 @@ char *str_concat(char *s1, char *s2)
 	int size2;
 	int n = 0;
 	int b = 0;
-	int *str;
+	char *str;
 
 	if (s1 == 0 && s2 == 0)
 	{
@@ -48,6 +48,6 @@ char *str_concat(char *s1, char *s2)
 		for (; n < size2; n++)
 			str[b++] = s2[n];
 		str[b] = '\0';
-		return (0);
+		return (str);
 	}
 }
