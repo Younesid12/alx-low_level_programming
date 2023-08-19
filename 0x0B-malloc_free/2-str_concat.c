@@ -29,18 +29,18 @@ char *str_concat(char *s1, char *s2)
 	int b = 0;
 	char *str;
 
-	if (s1 == 0 && s2 == 0)
+	if (s1 == NULL && s2 == NULL)
 	{
-		return (0);
+		return (NULL);
 	}
 	size1 = _strlen(s1);
 	size2 = _strlen(s2);
 
 
 	str = malloc((size1 + size2) * sizeof(char) + 1);
-	if (str == 0)
+	if (str == NULL)
 	{
-		return (0);
+		return (NULL);
 	}
 	else
 	{
