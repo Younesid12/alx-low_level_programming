@@ -13,6 +13,7 @@ int _strlen(char *s)
 		return (size);
 	}
 }
+
 /**
  * *argstostr - concatenates all the arguments of your program.
  * @ac: int
