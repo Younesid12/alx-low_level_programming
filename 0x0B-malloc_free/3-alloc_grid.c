@@ -1,11 +1,12 @@
 #include "main.h"
+
 /**
- * **alloc_grid(int width, int height);
- * @width: width of the grid
- * @height: height of the grid
- *
- * Return: pointer to a new allocated memory that contains array
+ * **alloc_grid - returns a pointer to a 2 dimensional array of integers.
+ * @width: int
+ * @height: int
+ * Return: 2d array
  */
+
 int **alloc_grid(int width, int height)
 {
 	int **tab, i, j;
