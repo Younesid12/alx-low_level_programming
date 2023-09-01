@@ -2,11 +2,18 @@
 /**
  * is_prime_number - returns 1 if the number is a prime number
  * @n: integer
- * Return: 1 if it is a prine number, otherwise, it returns 0
+ * Return: 1 if it is a prime number, otherwise, it returns 0
  */
 int is_prime_number(int n)
 {
-	return (findprime(n, 0));
+	if (n < 0)
+	{
+		return (0);
+	}
+	else
+	{
+		return (findprime(n, 0));
+	}
 }
 
 /**
