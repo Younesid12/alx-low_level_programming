@@ -34,6 +34,6 @@ int findprime(int n, int find)
 	}
 	else
 	{
-		findprime(n, find + 1);
+		return (findprime(n, find + 1));
 	}
-}
+
