@@ -6,7 +6,7 @@
  * @argv: list
  * Return: 0
  */
-int main(int argc, char *argv[]);
+int main(int argc, char *argv[])
 {
 	for (int a = 0; a < argc; a++)
 	{
