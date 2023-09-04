@@ -17,10 +17,11 @@ int main(int argc, char *argv[])
 		{
 			if (*str < '0' || *str > '9')
 			{
-				return (printf("Error\n"), 1);
+				printf("Error\n");
+				return (1);
 			}
-			sum += atoi(argv[argc]);
 		}
+		sum += atoi(argv[argc]);
 	}
 	printf("%d\n", sum);
 	return (0);
