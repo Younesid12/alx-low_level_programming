@@ -9,20 +9,16 @@
 int main(int argc, char *argv[])
 {
 	int sum = 0;
-	int b;
+	char *str;
 
-	for (b = 1; argc > b; b++)
+	while (--argc)
 	{
-		if (*argv[b] < '0' || *argv[b] > '9')
-		{
-			printf("Error\n");
-			return (1);
-		}
-		else
-		{
-			sum += atoi(argv[b]);
-		}
+		for (str = argv[argc]; *str; str++)
+		       if (*str < '0' || *str > '9')
+				return (printf("Error\n", 1);
+			sum += atoi(argv[argc]);
 	}
 	printf("%d\n", sum);
 	return (0);
+
 }
