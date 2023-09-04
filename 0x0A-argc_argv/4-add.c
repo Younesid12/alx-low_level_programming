@@ -14,9 +14,13 @@ int main(int argc, char *argv[])
 	while (--argc)
 	{
 		for (str = argv[argc]; *str; str++)
-		       if (*str < '0' || *str > '9')
-				return (printf("Error\n", 1);
+		{
+			if (*str < '0' || *str > '9')
+			{
+				return (printf("Error\n"), 1);
+			}
 			sum += atoi(argv[argc]);
+		}
 	}
 	printf("%d\n", sum);
 	return (0);
