@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	{
 		for (b = 1; argc > b; b++)
 		{
-			if (atoi(argv[b]) >= '0' && atoi(argv[b]) <= '9')
+			if (*(argv[b]) < '0' || *(argv[b]) > '9' || *(argv[b]) < 0)
 			{
 				printf("Error\n");
 				return (1);
