@@ -9,7 +9,7 @@ int strl(char *s)
 {
 	int length;
 
-	for (length = 0; *s != '\0'; s++)
+	for (length = 1; *s != '\0'; s++)
 	{
 		length++;
 	}
@@ -27,12 +27,12 @@ char *_strdup(char *str)
 	int i = 0;
 	int len;
 
-	len = strl(str);
-
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+	len = strl(str);
+
 	ptr = malloc(sizeof(char) * (len + 1));
 	if (ptr == 0)
 	{
