@@ -40,7 +40,8 @@ char *_strdup(char *str)
 	}
 	while (len > i)
 	{
-		ptr[i++] = str[i];
+		ptr[i] = str[i];
+		i++;
 	}
 	return (ptr);
 }
