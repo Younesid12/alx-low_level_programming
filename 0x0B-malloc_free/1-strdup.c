@@ -38,7 +38,7 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	while (len > 1)
+	while (len > i)
 	{
 		ptr[i++] = str[i];
 	}
