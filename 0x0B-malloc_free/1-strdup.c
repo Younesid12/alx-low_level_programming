@@ -9,7 +9,7 @@ int strl(char *s)
 {
 	int length;
 
-	for (length = 1; *s != '\0'; s++)
+	for (length = 0; *s != '\0'; s++)
 	{
 		length++;
 	}
@@ -34,7 +34,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 	ptr = malloc(sizeof(char) * (len + 1));
-	if (ptr == NULL)
+	if (ptr == 0)
 	{
 		return (NULL);
 	}
@@ -43,6 +43,5 @@ char *_strdup(char *str)
 		ptr[i] = str[i];
 		i++;
 	}
-	ptr[i] = '\0';
 	return (ptr);
 }
