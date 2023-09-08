@@ -27,10 +27,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
 	char *str;
-	int i = 0;
-	int b = 0;
-	int size1;
-	int size2;
+	unsigned int b = 0;
+	unsigned int size1;
+	unsigned int size2;
 
 	if (s1 == NULL)
 	{
@@ -38,7 +37,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	if (s2 == NULL)
 	{
-		s2 == "";
+		s2 = "";
 	}
 	size1 = _strlen(s1);
 	size2 = _strlen(s2);
