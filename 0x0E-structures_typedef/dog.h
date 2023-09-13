@@ -5,5 +5,6 @@ struct dog {
 	char *name;
 	float age;
 	char *owner;
+	/* struct dog can be used for handling info abot dogs */
 };
-#endif
+#endif /* DOG_H */
