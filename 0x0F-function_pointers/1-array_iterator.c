@@ -9,12 +9,12 @@
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	int b = 0;
+	int *result = array + size - 1;
 
 	if (array && size && action)
-		while (b < size)
+		while (array <= result)
 		{
-			(*action)(array[b]);
+			(*action)(*array++);
 			b++;
 		}
 }
