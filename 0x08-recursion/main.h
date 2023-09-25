@@ -13,4 +13,6 @@ int findsquare(int n, int find);
 int is_prime_number(int n);
 int findprime(int n, int find);
 int is_palindrome(char *s);
+int check_palindrome(char *s, int beginning, int end);
+int _strlen(char *s);
 #endif /* MAIN_H */
