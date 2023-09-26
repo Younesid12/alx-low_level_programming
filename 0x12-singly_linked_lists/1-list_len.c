@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stddef.h>
-#include "main.h"
+#include "lists.h"
 /**
  * list_len - returns the number of elements in a linked lists_t list
  * @h: pointer to the head node of the linked list
