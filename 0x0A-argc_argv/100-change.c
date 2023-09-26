@@ -9,9 +9,10 @@
 int main(int argc, char *argv[])
 {
 	int value;
-	int coins = 0;
+	int coins[] = {25, 10, 5, 2, 1};
+	int size = 0;
 
-	if (argc <= 2)
+	if (argc < 2)
 	{
 		printf("Error");
 		return (1);
@@ -22,34 +23,18 @@ int main(int argc, char *argv[])
 		printf("0\n");
 		return (0);
 	}
-	while (value > 0)
+
+	int coins2 = sizeof(coins) / sizeof(coins[0]);
+
+	for (int i = 0; i < coins2; i++)
 	{
-		if (value >= 25)
+		while (value >= coins[i])
 		{
-			value -= 25;
-			coins++;
-		}
-		else if (value >= 10)
-		{
-			value -= 10;
-			coins++;
-		}
-		else if (value >= 5)
-		{
-			value -= 5;
-			coins++;
-		}
-		else if (value >= 2)
-		{
-			value -= 2;
-			coins++;
-		}
-		else
-		{
-			value -= 1;
-			coins++;
+			value -= coins[i];
+			size++;
 		}
 	}
-	printf("%d\n", coins);
+	printf("%d\n", size);
 	return (0);
 }
+
