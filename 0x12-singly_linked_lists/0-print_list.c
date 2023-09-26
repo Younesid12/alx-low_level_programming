@@ -1,6 +1,7 @@
 #include "lists.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <stddef.h>
 /**
  * print_list - prints all the elements of a list_t list
  * @h: a pointer to the head of the stringly linked list
@@ -17,7 +18,7 @@ size_t print_list(const list_t *h)
 		return (0);
 	}
 	ptr = h;
-	while (ptr->link != NULL)
+	while (ptr != NULL)
 	{
 		if (ptr->str == NULL)
 		{
