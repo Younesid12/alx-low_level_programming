@@ -10,15 +10,18 @@ int main(int argc, char *argv[])
 {
 	int value;
 	int coins = 0;
-	int result;
 
 	if (argc <= 2)
+	{
 		printf("Error");
 		return (1);
+	}
 	value = atoi(argv[1]);
 	if (value < 0)
+	{
 		printf("0\n");
 		return (0);
+	}
 	while (value > 0)
 	{
 		if (value >= 25)
@@ -27,9 +30,11 @@ int main(int argc, char *argv[])
 			coins++;
 		}
 		else if (value >= 10)
+		{
 			value -= 10;
 			coins++;
-		if (value >= 5)
+		}
+		else if (value >= 5)
 		{
 			value -= 5;
 			coins++;
