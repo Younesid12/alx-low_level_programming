@@ -11,6 +11,8 @@ int main(int argc, char *argv[])
 	int value;
 	int coins[] = {25, 10, 5, 2, 1};
 	int size = 0;
+	int i;
+	int coins2;
 
 	if (argc < 2)
 	{
@@ -24,9 +26,9 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	int coins2 = sizeof(coins) / sizeof(coins[0]);
+	coins2 = sizeof(coins) / sizeof(coins[0]);
 
-	for (int i = 0; i < coins2; i++)
+	for (i = 0; i < coins2; i++)
 	{
 		while (value >= coins[i])
 		{
