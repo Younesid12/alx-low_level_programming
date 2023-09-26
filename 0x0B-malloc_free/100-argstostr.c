@@ -26,7 +26,7 @@ char *argstostr(int ac, char **av)
 		}
 	}
 
-	result = malloc(sizeof(char) * size);
+	result = malloc(sizeof(char) * (size + 1));
 	if (result == NULL)
 	{
 		return (NULL);
@@ -40,7 +40,6 @@ char *argstostr(int ac, char **av)
 		}
 		result[a++] = '\n';
 	}
-	size++;
 	result[a] = '\0';
 
 	return (result);
