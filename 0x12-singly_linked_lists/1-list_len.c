@@ -9,13 +9,14 @@
 size_t list_len(const list_t *h)
 {
 	unsigned int i = 0;
+	const list_t *ptr;
 
 	if (!h)
 	{
 		return (0);
 	}
 
-	const list_t *ptr = h;
+	ptr = h;
 
 	while (ptr != NULL)
 	{
