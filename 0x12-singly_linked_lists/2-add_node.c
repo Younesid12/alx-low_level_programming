@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <stdlib.h>
+
 /**
  * _strlen - returns the length of a string
  * @str: pointer to a string to be counted
@@ -16,7 +17,9 @@ int _strlen(const char *str)
 	{
 		length++;
 	}
+	return (length);
 }
+
 /**
  * *add_node - adds a new node at the beginning of a list_t list
  * @head: a pointer to pointer to the head of the linked list
@@ -34,7 +37,7 @@ list_t *add_node(list_t **head, const char *str)
 	ptr = malloc(sizeof(list_t));
 	if (ptr == NULL)
 	{
-		return(NULL);
+		return (NULL);
 	}
 
 	ptr->str = strdup(str);
