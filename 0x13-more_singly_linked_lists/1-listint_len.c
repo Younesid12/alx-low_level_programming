@@ -9,7 +9,7 @@
 size_t listint_len(const listint_t *h)
 {
 	int size = 0;
-	const listint *ptr;
+	const listint_t *ptr;
 
 	if (!h)
 	{
