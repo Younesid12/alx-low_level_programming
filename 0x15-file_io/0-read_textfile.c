@@ -21,6 +21,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 	{
 		write(STDOUT_FILENO, "failed to open the file\n", 24);
+		free(buffer);
 		return (0);
 	}
 	else
@@ -29,6 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (n == -1)
 		{
 			write(STDOUT_FILENO, "filed to read the file\n", 24);
+			free(buffer);
 			return (0);
 		}
 		else
