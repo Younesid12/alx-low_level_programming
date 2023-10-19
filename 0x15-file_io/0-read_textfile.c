@@ -7,14 +7,16 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char buffer[1000];
-	int n;
+	char *buffer = NULL;
+	size_t n;
+	int fd;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
-	int fd = open(filename, O_RDONLY);
+
+	fd = open(filename, O_RDONLY);
 
 	if (fd == -1)
 	{
@@ -23,16 +25,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	else
 	{
-		n = read(STDIN_FILENO, buffer, sizeof(buffer));
-		if (n == -1)
+		n = read(STDIN_FILENO, buffer, sizeof(letters));
+		if (n != letters)
 		{
 			write(STDOUT_FILENO, "filed to read the file\n", 24);
 			return (0);
 		}
 		else
 		{
-			write(STDOUT_FILENO, buffer, sizeof(buffer));
-			return (n);
+			write(STDOUT_FILENO, buffer, letters);
+			return (letters);
 		}
 	}
 }
