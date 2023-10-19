@@ -25,7 +25,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	else
 	{
-		n = read(STDIN_FILENO, buffer, sizeof(letters));
+		n = read(fd, buffer, sizeof(letters));
 		if (n == -1)
 		{
 			write(STDOUT_FILENO, "filed to read the file\n", 24);
