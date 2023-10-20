@@ -1,4 +1,9 @@
 #include "main.h"
+#include <string.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 /**
  * create_file - creates a file
  * @filename: file to be created
@@ -28,7 +33,7 @@ int create_file(const char *filename, char *text_content)
 	{
 		fd = open(filename, O_WRONLY | O_TRUNC);
 	}
-	fd = open(filename, O_CREAT | O_WRONLY, 7);
+	fd = open(filename, O_CREAT | O_WRONLY, 700);
 	if (fd == -1)
 	{
 		return (-1);
