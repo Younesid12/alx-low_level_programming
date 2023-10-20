@@ -19,12 +19,6 @@ int create_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (-1);
-	if (text_content == NULL)
-	{
-		text_content = malloc(sizeof(char) * 2);
-		text_content = " ";
-		length = 1;
-	}
 	length = (size_t)strlen(text_content);
 	ch = access(filename, F_OK);
 	if (ch == 0)
@@ -39,16 +33,18 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	n = write(fd, text_content, length);
-	if (n == -1)
+	if (text_content != NULL)
 	{
-		close(fd);
-		return (-1);
-	}
-	else if (*text_content == ' ')
-	{
-		free(text_content);
-		close(fd);
+		n = write(fd, text_content, length);
+		if (n == -1)
+		{
+			close(fd);
+			return (-1);
+		}
+		else if (*text_content == ' ')
+		{
+			close(fd);
+		}
 	}
 	return (1);
 }
