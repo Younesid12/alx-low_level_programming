@@ -7,15 +7,17 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *buffer = malloc(sizeof(char) * letters);
 	ssize_t n;
-	ssize_t a;
 	int fd;
+	ssize_t a;
+	char *buffer;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
+	buffer = malloc(sizeof(char) * letters);
+
 	if (buffer == NULL)
 	{
 		return (0);
