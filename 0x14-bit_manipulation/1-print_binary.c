@@ -17,9 +17,9 @@ void print_binary(unsigned long int n)
 }
 void find_binary(unsigned long int n)
 {
-	int i = 0;
-	int num = 0;
-	int num1 = 0;
+	unsigned long int i = 0;
+	unsigned int num = 0;
+	unsigned int num1 = 0;
 
 	if (n == 0)
 	{
