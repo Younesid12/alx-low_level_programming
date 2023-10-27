@@ -6,10 +6,6 @@
  */
 void print_binary(unsigned long int n)
 {
-	int n = 0;
-	int num = 0;
-	int num1 = 0;
-
 	if (n == 0)
 	{
 		_putchar('0');
@@ -21,10 +17,15 @@ void print_binary(unsigned long int n)
 }
 void find_binary(unsigned long int n)
 {
+	int num = 0;
+	int num1 = 0;
+
 	if (n == 0)
 	{
 		return;
 	}
+	else
+	{
 		num = n / 2;
 		num1 = n - (num * 2);
 		n = num;
