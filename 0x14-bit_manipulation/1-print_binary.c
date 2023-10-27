@@ -43,7 +43,10 @@ void find_binary(unsigned long int n)
 			{
 				break;
 			}
-			num++;
+			else
+			{
+				num++;
+			}
 		}
 		num1 = n - (num * 2);
 		n = num;
