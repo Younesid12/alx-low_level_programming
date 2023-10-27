@@ -17,6 +17,7 @@ void print_binary(unsigned long int n)
 }
 void find_binary(unsigned long int n)
 {
+	int i = 0;
 	int num = 0;
 	int num1 = 0;
 
@@ -26,7 +27,19 @@ void find_binary(unsigned long int n)
 	}
 	else
 	{
-		num = n / 2;
+		while (i <= 0)
+		{
+			i = num * 2;
+			if (i == n)
+			{
+				break;
+			}
+			else if ((num + 1) * 2 > n)
+			{
+				break;
+			}
+			num++;
+		}
 		num1 = n - (num * 2);
 		n = num;
 		find_binary(n);
