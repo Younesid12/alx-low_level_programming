@@ -32,7 +32,7 @@ void find_binary(unsigned long int n)
 	}
 	else
 	{
-		while (i <= 0)
+		while (i <= n)
 		{
 			i = num * 2;
 			if (i == n)
