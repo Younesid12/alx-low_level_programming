@@ -15,6 +15,11 @@ void print_binary(unsigned long int n)
 		find_binary(n);
 	}
 }
+/**
+ * find_binary - finds a binary of a number
+ * @n: the number to be converted to a its binary representation
+ * Return: void
+ */
 void find_binary(unsigned long int n)
 {
 	unsigned long int i = 0;
