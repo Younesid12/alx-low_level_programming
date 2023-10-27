@@ -21,13 +21,13 @@ unsigned int binary_to_uint(const char *b)
 	{
 		length = strlen(b);
 		length = length - 1;
-		while (i<= length)
+		while (i <= length)
 		{
-			if(b[length] == '1' || b[length] == '0')
+			if (b[length] == '1' || b[length] == '0')
 			{
 				arr[0] = b[length];
 				integer = atoi(arr);
-				num = num = (integer * n);
+				num = num + (integer * n);
 				n = n * 2;
 			}
 			else
