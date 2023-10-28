@@ -6,51 +6,24 @@
  */
 void print_binary(unsigned long int n)
 {
-	if (n == 0)
-	{
-		_putchar('0');
-	}
-	else
-	{
-		find_binary(n);
-	}
-}
-/**
- * find_binary - finds a binary of a number
- * @n: the number to be converted to a its binary representation
- * Return: void
- */
-void find_binary(unsigned long int n)
-{
-	unsigned long int i = 0;
-	unsigned long int num = 0;
-	unsigned int num1 = 0;
+	unsigned long int num1;
+	int i;
+	int num = 0;
 
-	if (n == 0)
+	for (i = 63; i >= 0; i--)
 	{
-		return;
-	}
-	else
-	{
-		while (i <= n)
+		num1 = n >> i;
+
+		if (num1 & 1)
 		{
-			i = num * 2;
-			if (i == n)
-			{
-				break;
-			}
-			else if ((num + 1) * 2 > n)
-			{
-				break;
-			}
-			else
-			{
-				num++;
-			}
+			_putchar('1');
+			num++;
 		}
-		num1 = n - (num * 2);
-		n = num;
-		find_binary(n);
-		_putchar(num1 + '0');
+		else if (num)
+		{
+			_putchar('0');
+		}
 	}
+	if (num == 0)
+		_putchar('0');
 }
