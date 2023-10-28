@@ -32,6 +32,10 @@ void find_binary(unsigned long int n)
 	}
 	else
 	{
+		if (n < 10000)
+		{
+			num = 400;
+		}
 		while (i <= n)
 		{
 			i = num * 2;
