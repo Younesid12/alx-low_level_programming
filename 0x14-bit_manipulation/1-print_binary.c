@@ -24,7 +24,7 @@ void find_binary(unsigned long int n)
 {
 	unsigned long int i = 0;
 	unsigned long int num = 0;
-	unsigned long int num1 = 0;
+	unsigned int num1 = 0;
 
 	if (n == 0)
 	{
