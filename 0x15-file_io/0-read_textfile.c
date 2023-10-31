@@ -42,7 +42,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			else
 			{
 				close(fd);
-				return (bytes_num);
+				return (bytes_wrote);
 			}
 		}
 	}
