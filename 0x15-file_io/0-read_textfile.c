@@ -36,7 +36,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			bytes_wrote = write(STDOUT_FILENO, buffer, letters);
 			sum = letters;
-			if (bytes_wrote == -1 || bytes_wrote != sum)
+			if (bytes_wrote == -1 || bytes_wrote != bytes_num)
 			{
 				close(fd);
 				return (0);
