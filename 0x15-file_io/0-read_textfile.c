@@ -10,7 +10,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int fd;
 	ssize_t bytes_num;
 	ssize_t bytes_wrote;
-	ssize_t sum;
 	char buffer[1024];
 
 	if (filename == NULL)
@@ -35,7 +34,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		else
 		{
 			bytes_wrote = write(STDOUT_FILENO, buffer, letters);
-			sum = letters;
 			if (bytes_wrote == -1 || bytes_wrote != bytes_num)
 			{
 				close(fd);
