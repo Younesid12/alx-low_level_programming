@@ -20,20 +20,16 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	else
+	letters = strlen(text_content);
+	if (text_content != NULL)
 	{
-		letters = strlen(text_content);
-		if (text_content != NULL)
+		bytes_written = write(fd, text_content, letters);
+		if (bytes_written == -1)
 		{
-			bytes_written = write(fd, text_content, letters);
-			if (bytes_written == -1)
-			{
-				close(fd);
-				return (-1);
-			}
+			close(fd);
+			return (-1);
 		}
 	}
-
 	close(fd);
 	return (1);
 }
