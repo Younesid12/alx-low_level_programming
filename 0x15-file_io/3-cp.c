@@ -2,20 +2,17 @@
 /**
  * _close - closes a file descriptor
  * @fd: file descriptor;
- * Return: 0 if seccuss, otherwise -1
+ * Return: 0 if success, otherwise -1
  */
-int _close(int fd)
+void _close(int fd)
 {
 	int check;
 
 	check = close(fd);
-	if (check != -1)
+	if (check == -1)
 	{
-		return (0);
-	}
-	else
-	{
-		return (-1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
 	}
 }
 /**
@@ -41,21 +38,11 @@ int main(int argc, char **argv)
 	bytes_read = read(fd, buffer, 1024);
 	if (bytes_read == -1)
 	{
-		if (_close(fd) != 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-			exit(100);
-		}
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	else
 	{
-		if (close(fd) == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-			exit(100);
-		}
 		fdd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 		if (fdd == -1)
 		{
@@ -69,10 +56,8 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	}
-	if (_close(fdd) == -1)
-	{
-		dprintf(fdd, "Error: can't close fd %d\n", fdd);
-		exit(100);
-	}
+	_close(fd);
+	_close(fdd);
+
 	return (0);
 }
