@@ -10,7 +10,7 @@ void _close(int fd)
 
 	check = close(fd);
 
-	if (check == -1)
+	if (check != 0)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
 		exit(100);
