@@ -44,13 +44,8 @@ int main(int argc, char **argv)
 	else
 	{
 		fdd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-		if (fdd == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
-		bytes_written = write(fdd, buffer, 1024);
-		if (bytes_written == -1)
+		bytes_written = write(fdd, buffer, bytes_read);
+		if (bytes_written == -1 || fdd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
