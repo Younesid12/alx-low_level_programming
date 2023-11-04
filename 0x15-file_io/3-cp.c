@@ -1,24 +1,5 @@
 #include "main.h"
 /**
- * create_buffer - creates a buffer
- * @filename: pointer to the filename
- * Return: pointer to the new allocated memory for buffer
- */
-char *create_buffer(char *filename)
-{
-	char *buffer;
-
-	buffer = malloc(sizeof(char) * 1024);
-
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
-		exit(99);
-	}
-
-	return (buffer);
-}
-/**
  * _close - closes a file descriptor
  * @fd: file descriptor
  * Return:  0 if successfully close, otherwise -1
@@ -54,11 +35,10 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buffer = create_buffer(argv[2]);
 	fd = open(argv[1], O_RDONLY);
 	bytes_read = read(fd, buffer, 1024);
 	fdd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC);
-	while (bytes_read > 0)
+	while (bytes_read != 0)
 	{
 		if (bytes_read == -1 || fd == -1)
 		{
