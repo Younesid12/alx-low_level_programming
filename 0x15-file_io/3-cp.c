@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		fdd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+		fdd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 		bytes_written = write(fdd, buffer, bytes_read);
 		if (bytes_written == -1 || fdd == -1)
 		{
