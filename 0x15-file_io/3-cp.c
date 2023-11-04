@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	bytes_read = read(fd, buffer, 1024);
 	fdd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC);
-	while (bytes_read != 0)
+	while (bytes_read > 0)
 	{
 		if (bytes_read == -1 || fd == -1)
 		{
