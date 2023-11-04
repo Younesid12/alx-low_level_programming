@@ -36,20 +36,27 @@ int main(int argc, char **argv)
 	}
 	fd = open(argv[1], O_RDONLY);
 	bytes_read = read(fd, buffer, 1024);
-	if (bytes_read == -1 || fd == -1)
+	fdd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC);
+	while (bytes_read != 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	else
-	{
-		fdd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-		bytes_written = write(fdd, buffer, bytes_read);
-		if (bytes_written == -1 || fdd == -1)
+		if (bytes_read == -1 || fd == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		}
+		else
+		{
+			bytes_written = write(fdd, buffer, bytes_read);
+			if (bytes_written == -1 || fdd == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+				exit(99);
+			}
+		}
+		bytes_read = read(fd, buffer, 1024);
+		_close(fdd);
+		fdd = open(argv[2], O_WRONLY | O_APPEND);
+
 	}
 	_close(fd);
 	_close(fdd);
