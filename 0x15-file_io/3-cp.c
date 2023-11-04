@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	int fd;
 	ssize_t bytes_read;
 	ssize_t bytes_written;
-	char *buffer;
+	char buffer[1024];
 	int fdd;
 
 	if (argc != 3)
@@ -42,7 +42,6 @@ int main(int argc, char **argv)
 	{
 		if (bytes_read == -1 || fd == -1)
 		{
-			free(buffer);
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
@@ -51,14 +50,12 @@ int main(int argc, char **argv)
 			bytes_written = write(fdd, buffer, bytes_read);
 			if (bytes_written == -1 || fdd == -1)
 			{
-				free(buffer);
 				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 				exit(99);
 			}
 		}
 		bytes_read = read(fd, buffer, 1024);
 	}
-	free(buffer);
 	_close(fd);
 	_close(fdd);
 	return (0);
