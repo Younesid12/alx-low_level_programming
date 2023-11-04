@@ -54,7 +54,6 @@ int main(int argc, char **argv)
 			}
 		}
 		bytes_read = read(fd, buffer, 1024);
-		fdd = open(argv[2], O_WRONLY | O_APPEND);
 
 	}
 	_close(fd);
