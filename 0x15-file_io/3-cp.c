@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _create_buffer - creates a buffer
+ * create_buffer - creates a buffer
  * @filename: pointer to the filename
  * Return: pointer to the new allocated memory for buffer
  */
@@ -29,7 +29,7 @@ void _close(int fd)
 
 	check = close(fd);
 
-	if (check != 0)
+	if (check == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
 		exit(100);
@@ -77,11 +77,10 @@ int main(int argc, char **argv)
 			}
 		}
 		bytes_read = read(fd, buffer, 1024);
-
+		fdd = open(argv[2], O_WRONLY | O_APPEND);
 	}
 	free(buffer);
 	_close(fd);
 	_close(fdd);
 	return (0);
 }
-
