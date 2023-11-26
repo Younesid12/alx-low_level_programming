@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * strncat - concatenates two strings
+ * _strncat - concatenates two strings
  * @dest: the destination where the second string will be appended
  * @src: the source string which is the string to be appended
  * @n: number of bytes to be printed
