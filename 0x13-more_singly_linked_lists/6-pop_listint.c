@@ -18,10 +18,18 @@ int pop_listint(listint_t **head)
 	}
 	else
 	{
-		ptr = (*head)->next;
-		free(*head);
-		*head = ptr;
-		n_data = (*head)->n;
+		if ((*head)->next != NULL)
+		{
+			ptr = (*head)->next;
+			free(*head);
+			*head = ptr;
+			n_data = (*head)->n;
+		}
+		else
+		{
+			n_data = (*head)->n;
+			free(*head);
+		}
 		return (n_data);
 	}
 }
