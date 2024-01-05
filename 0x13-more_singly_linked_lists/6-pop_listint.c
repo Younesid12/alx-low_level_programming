@@ -10,7 +10,7 @@
 int pop_listint(listint_t **head)
 {
 	listint_t *ptr;
-	listint_t *n;
+	int n_data;
 
 	if (!head || !*head)
 	{
@@ -21,7 +21,7 @@ int pop_listint(listint_t **head)
 		ptr = (*head)->next;
 		free(*head);
 		*head = ptr;
-		n = (*head)->n
-		return (n);
+		n_data = (*head)->n;
+		return (n_data);
 	}
 }
