@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include <lists.h>
+#include "lists.h"
 /**
  * pop_listint - removes the head node of a linked list
  * @head: pointer to pointer to the head node
