@@ -13,6 +13,7 @@ int sum_listint_t(listint_t *head)
 	int sum = 0;
 
 	ptr = head;
+
 	if (!head)
 	{
 		return (0);
