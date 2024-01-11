@@ -5,7 +5,7 @@
 /**
  * sum_listint - returns the sum of all data (n) of a listint_t linked list
  * @head: the head of the linked list
- * Return: sum of the data (n), 0if the list is empty
+ * Return: sum of the data (n), 0 if the list is empty
  */
 int sum_listint_t(listint_t *head)
 {
