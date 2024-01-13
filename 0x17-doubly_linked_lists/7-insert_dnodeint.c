@@ -2,16 +2,16 @@
 /**
  * insert_dnodeint_at_index - inserts a new node at a given position
  * @h: pointer to pointer to the head of the linked list
- * @idx: the index of the list where the new node should be added, starting from 0
- * @n: the data to  be added to the inserted node 
+ * @idx: index of the list where the new node should be added, starting from 0
+ * @n: the data to  be added to the inserted node
  * Return: the address of the new node, NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *ptr;
-	dlistint_t *temp;
 	dlistint_t *new_node;
 	unsigned int i;
+
 	new_node = malloc(sizeof(dlistint_t));
 	if (!h || !new_node)
 	{
@@ -25,33 +25,22 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		return (new_node);
 	}
-	i = 0;
 	ptr = *h;
-	temp = *h;
-	while (temp != NULL)
-	{
-		if (i == idx)
-		{
-			break;
-		}
-		i++;
-		temp = temp->next;
-	}
 	i = 0;
 	while (ptr != NULL)
 	{
 		if (i == idx && i == 0)
 		{
 			new_node->prev = NULL;
-			temp->prev = new_node;
-			new_node->next = temp;
-			*h = temp;
+			ptr->prev = new_node;
+			new_node->next = ptr;
+			*h = new_node;
 		}
 		else if (i == idx)
 		{
-			new_node->next = temp;
-			temp->prev->next = new_node;
-			new_node->prev = temp->prev;
+			new_node->next = ptr;
+			ptr->prev->next = new_node;
+			new_node->prev = ptr->prev;
 		}
 		ptr = ptr->next;
 	}
