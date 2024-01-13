@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
  * add_dnodeint_end - adds a new node at the end of a dlistint_t list
- * @head = pointer to pointer to the head node of the linked list
+ * @head: pointer to pointer to the head node of the linked list
  * @n: an integer data for the new node to be added at the end
  * Return: the address of the new elements, or NULL if it failed
  */
