@@ -7,12 +7,13 @@
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *new_hash = malloc(sizeof(hash_table_t));
+
 	if (!new_hash)
 	{
 		return (NULL);
 	}
 	new_hash->size = size;
-	new_hash->array = (hash_node_t **)calloc(new_hash->size, sizeof(hash_node_t));
+	new_hash->array = (hash_node_t **)calloc(size, sizeof(hash_node_t));
 	if (!new_hash->array)
 	{
 		return (NULL);
