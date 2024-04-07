@@ -17,33 +17,30 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	index = key_index((const unsigned char *)key, ht->size);
+	if (!ht->array[index])
+	{
+		ht->array[index] = new_node;
+		return (1);
+	}
 	if (strcmp(ht->array[index]->key, key) == 0)
 	{
 		ht->array[index]->value= realloc(ht->array[index]->value, sizeof(char) * strlen(value) + 1);
 		strcpy(ht->array[index]->value, value);
 		return (1);
 	}
-	else
+	new_node = malloc(sizeof(hash_node_t));
+	if (!new_node)
 	{
-		new_node = malloc(sizeof(hash_node_t));
-		if (!new_node)
-		{
-			return (0);
-		}
-		new_node->key = malloc(sizeof(char) * strlen(key) + 1);
-		new_node->value = malloc(sizeof(char) * strlen(value) + 1);
-		if (!new_node->key || !new_node->value)
-		{
-			return (0);
-		}
-		strcpy(new_node->value, value);
-		strcpy(new_node->key, key);
+		return (0);
 	}
-	if (!ht->array[index])
+	new_node->key = malloc(sizeof(char) * strlen(key) + 1);
+	new_node->value = malloc(sizeof(char) * strlen(value) + 1);
+	if (!new_node->key || !new_node->value)
 	{
-		ht->array[index] = new_node;
-		return (1);
+		return (0);
 	}
+	strcpy(new_node->value, value);
+	strcpy(new_node->key, key);
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 	return (1);
