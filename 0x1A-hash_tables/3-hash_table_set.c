@@ -21,6 +21,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		ht->array[index]->value= realloc(ht->array[index]->value, sizeof(char) * strlen(value) + 1);
 		strcpy(ht->array[index]->value, value);
+		return (1);
 	}
 	else
 	{
