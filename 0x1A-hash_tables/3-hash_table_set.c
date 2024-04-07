@@ -25,17 +25,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->value = malloc(sizeof(char) * strlen(key) + 1);
 	if (!new_node->key || !new_node->value)
 	{
+		free(new_node);
 		return (0);
 	}
 	strcpy(new_node->value, value);
 	strcpy(new_node->key, key);
-	new_node->next = NULL;
 	index = key_index((const unsigned char *)key, ht->size);
 	if (!ht->array[index])
 	{
 		ht->array[index] = new_node;
 		return (1);
 	}
-	ht->array[index]->next = new_node;
+	new_node->next = ht->array[index];
+	ht->array[index] = new_node;
 	return (1);
 }
