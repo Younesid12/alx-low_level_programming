@@ -19,7 +19,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	if (strcmp(ht->array[index]->key, key) == 0)
 	{
-		ht->array[index]->value= realloc(ht->array[index]->key, sizeof(char) * strlen(value) + 1);
+		ht->array[index]->value= realloc(ht->array[index]->value, sizeof(char) * strlen(value) + 1);
 		strcpy(ht->array[index]->value, value);
 	}
 	else
