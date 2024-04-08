@@ -17,9 +17,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	index = key_index((const unsigned char *)key, ht->size);
-	if (ht->array[index] && strcmp(ht->array[index]->key, key == 0))
+	if (ht->array[index] && strcmp(ht->array[index]->key, key) == 0)
 	{
-		ht->array[index]->value = realloc(sizeof(char) * strlen(value) + 1);
+		ht->array[index]->value = realloc(ht->array[index]->value, sizeof(char) * strlen(value) + 1);
 		if (!ht->array[index]->value)
 		{
 			return (0);
@@ -33,7 +33,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
                 return (0);
         }
 	new_node->value = malloc(sizeof(char) * strlen(value) + 1);
-	new_node->key = malloc(sizeof(char) * strlen(char) + 1);
+	new_node->key = malloc(sizeof(char) * strlen(key) + 1);
         if (new_node->key || !new_node->value)
         {
                 return (0);
