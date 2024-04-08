@@ -36,7 +36,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	new_node->value = malloc(sizeof(char) * strlen(value) + 1);
 	new_node->key = malloc(sizeof(char) * strlen(key) + 1);
-	if (new_node->key || !new_node->value)
+	if (!new_node->key || !new_node->value)
 	{
 		return (0);
 	}
